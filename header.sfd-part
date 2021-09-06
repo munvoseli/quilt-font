@@ -9,8 +9,8 @@ Version: 001.000
 ItalicAngle: 0
 UnderlinePosition: 0
 UnderlineWidth: 51.2
-Ascent: 819
-Descent: 205
+Ascent: 1024
+Descent: 0
 InvalidEm: 0
 LayerCount: 2
 Layer: 0 0 "Back" 1
@@ -49,8 +49,8 @@ WinInfo: 0 17 14
 BeginPrivate: 0
 EndPrivate
 Grid
--1024 1126.40039062 m 0
- 2048 1126.40039062 l 1024
+-1024 1024 m 0
+ 2048 1024 l 1024
 EndSplineSet
 BeginChars: 256 256
 
