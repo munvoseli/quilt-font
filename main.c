@@ -60,7 +60,6 @@ void produce_char
 			fprintf( fp, " %d %d l 1\n", coords_x [i + 1], coords_y [i + 1] );
 			fprintf( fp, " 512 512 l 1\n" );
 		}
-		mid = !(character & (1 << i));
 	}
 	// The following code is less readable, and both generate self-intersection errors, so I chose the one above
 	// to do: actually good thing
