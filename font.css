@@ -4,5 +4,17 @@
 }
 
 body {
+    width: 100%;
+    margin: 8px;
+}
+
+main {
     font-family: bonkle, monospace;
+    max-width: 500px;
+    margin: auto;
+}
+
+header {
+    max-width: 500px;
+    margin: auto;
 }
