@@ -29,27 +29,9 @@ static const int coords_y [] = {
 	512
 };
 
-
-void produce_char
+void spline_print_quilt
 (FILE * fp, unsigned char character)
 {
-	fprintf( fp, "\n" );
-	if (ascii_names[character] == NULL)
-	{
-		fprintf( fp, "StartChar: uni00%X%X\n",
-		         character >> 4, character & 15 );
-	}
-	else
-		fprintf( fp, "StartChar: %s\n",
-		         ascii_names [character] );
-	fprintf( fp, "Encoding: %d %d %d\n",
-	         character, character, character);
-	fprintf( fp, "Width: 1024\n" );
-	fprintf( fp, "Flags: H\n" );
-	fprintf( fp, "LayerCount: 2\n" );
-	fprintf( fp, "Fore\n" );
-	
-	fprintf( fp, "SplineSet\n" );
 	unsigned char i;
 	for (i = 0; i < 8; ++i)
 	{
@@ -61,9 +43,11 @@ void produce_char
 			fprintf( fp, " 512 512 l 1\n" );
 		}
 	}
-	// The following code is less readable, and both generate self-intersection errors, so I chose the one above
-	// to do: actually good thing
-	/*
+}
+
+// The following code is less readable than spline_print_quilt, and both generate self-intersection errors, so I chose spline_print_quilt
+void spline_print_fancy( FILE * fp, unsigned char character )
+{
 	unsigned char i, mid;
 	mid = (character & 0x81) != 0x81;
 	if (mid)
@@ -91,7 +75,29 @@ void produce_char
 	}
 	if (!mid && !(character & 1))
 		fprintf( fp, " 512 512 l 1\n" );
-	*/
+}
+
+void produce_char
+(FILE * fp, unsigned char character)
+{
+	fprintf( fp, "\n" );
+	if (ascii_names[character] == NULL)
+	{
+		fprintf( fp, "StartChar: uni00%X%X\n",
+		         character >> 4, character & 15 );
+	}
+	else
+		fprintf( fp, "StartChar: %s\n",
+		         ascii_names [character] );
+	fprintf( fp, "Encoding: %d %d %d\n",
+	         character, character, character);
+	fprintf( fp, "Width: 1024\n" );
+	fprintf( fp, "Flags: H\n" );
+	fprintf( fp, "LayerCount: 2\n" );
+	fprintf( fp, "Fore\n" );
+	
+	fprintf( fp, "SplineSet\n" );
+	spline_print_quilt( fp, character );
 	fprintf( fp, "EndSplineSet\n" );
 	
 	fprintf( fp, "EndChar\n" );
