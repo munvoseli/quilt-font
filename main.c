@@ -77,6 +77,8 @@ void spline_print_fancy( FILE * fp, unsigned char character )
 		fprintf( fp, " 512 512 l 1\n" );
 }
 
+#include "spline-quilt-octagon.c"
+
 void produce_char
 (FILE * fp, unsigned char character)
 {
@@ -97,7 +99,7 @@ void produce_char
 	fprintf( fp, "Fore\n" );
 	
 	fprintf( fp, "SplineSet\n" );
-	spline_print_quilt( fp, character );
+	spline_print_octagon( fp, character );
 	fprintf( fp, "EndSplineSet\n" );
 	
 	fprintf( fp, "EndChar\n" );
