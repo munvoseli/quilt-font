@@ -106,7 +106,7 @@ void produce_char
 int main
 (int argc, char ** argv)
 {
-	FILE * fp = fopen ("out.sfd", "w");
+	FILE * fp = fopen ("Quilt.sfd", "w");
 	FILE * fp_header = fopen ("header.sfd-part", "r");
 
 	unsigned char buffer;
