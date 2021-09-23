@@ -3,15 +3,27 @@
     src: url("Quilt.woff2");
 }
 
+@font-face {
+    font-family: gerald;
+    src: url("out.woff2");
+}
+
 body {
     width: 100%;
-    margin: 8px;
+    margin: 0;
 }
 
 main {
-    font-family: bonkle, monospace;
     max-width: 500px;
     margin: auto;
+}
+
+.bonkle {
+    font-family: bonkle, monospace;
+}
+
+.gerald {
+    font-family: gerald, monospace;
 }
 
 header {
